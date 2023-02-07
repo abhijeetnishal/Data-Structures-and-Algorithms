@@ -34,8 +34,38 @@ int findTargetSumWays(vector<int>& nums, int target) {
 
 
 //Memoization:
-//https://leetcode.com/problems/target-sum/solutions/1470377/c-dp-similar-to-count-of-subset-with-given-sum-inspired-by-aditya-verma/?orderBy=most_votes
+/*
+let us say we have the array as [1,1,1,1,1] and the target = 3;
+We just need to add (+ or -) signs in front of the integers.
 
+e.g +1 +1 +1 -1 -1 = 3
+
+Essentially, what we are doing is that we are just splitting the numbers into two subsets, 
+one with positive signs and the other with negative signs
+
+(1 , 1 , 1) => with positive signs
+(1 , 1) => with negative signs
+
+and we are calculating the difference of the sum of these two sets
+(1 , 1 , 1) => with positive signs , sum = 3
+(1 , 1) => with negative signs , sum = 2
+
+diff = target = (3-2) = 1
+
+So we just need to find all such pairs of subsets whose sum difference is equal to our given target.
+
+Consider S1 and S2 to be one such pair then the following equations holds
+
+S1 - S2 = target
+S1 + S2 = sum of all the elements
+
+By simplifing the above 2 equations we get, 2* S1 = target + Sum of all the elements
+
+=> S1 = (target + Sum of all the elements) / 2
+
+So, this problem now reduces to just finding count of subsets which are having sum equal to S1.
+
+*/
 
 //Itearative DP:
 int findTargetSumWays(vector<int>& nums, int target) {
