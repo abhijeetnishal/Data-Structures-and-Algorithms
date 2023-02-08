@@ -133,7 +133,7 @@ int jump(vector<int>& nums) {
 }
 
 //Approach for greedy: TC:O(N) SC:O(1)
-//https://leetcode.com/problems/jump-game-ii/solutions/18028/o-n-bfs-solution/?orderBy=most_votes
+//visit to know more: https://leetcode.com/problems/jump-game-ii/solutions/18028/o-n-bfs-solution/?orderBy=most_votes
 int jump(int A[], int n) {
     if(n<2)return 0;
     int level=0,currentMax=0,i=0,nextMax=0;
