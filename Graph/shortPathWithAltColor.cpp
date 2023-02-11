@@ -47,18 +47,18 @@ where neighbor is the neighbor of node and color denotes the edge color that con
 vector<int> shortestAlternatingPaths(int n, vector<vector<int>>& redEdges, vector<vector<int>>& blueEdges) {
     vector<vector<pair<int, int>>> adj(n);
     for (auto& redEdge : redEdges) {
-        adj[redEdge[0]].push_back({redEdge[1], 0});
+        adj[redEdge[0]].push_back({redEdge[1], 0});   //src, dest, col=0(red)
     }
     for (auto& blueEdge : blueEdges) {
-        adj[blueEdge[0]].push_back(make_pair(blueEdge[1], 1));
+        adj[blueEdge[0]].push_back(make_pair(blueEdge[1], 1));   //src, dest, col=1(blue)
     }
 
     vector<int> answer(n, -1);
-    vector<vector<bool>> visit(n, vector<bool>(2));
+    vector<vector<bool>> visit(n, vector<bool>(2));   //vis arr 2d n*2 (color=red or blue)
     queue<vector<int>> q;
 
     // Start with node 0, with number of steps as 0 and undefined color -1.
-    q.push({0, 0, -1});
+    q.push({0, 0, -1});                          //node, dist, color
     visit[0][1] = visit[0][0] = true;
     answer[0] = 0;
 
